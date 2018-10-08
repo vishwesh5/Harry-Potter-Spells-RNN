@@ -1,4 +1,6 @@
+import sys
 from textgenrnn import textgenrnn
-textgen = textgenrnn()
-textgen.train_from_file('spells.txt',num_epochs=100)
-textgen.generate(1)
+textgen = textgenrnn(name="hp_spells")
+fname = sys.argv[1]
+textgen.train_from_file(fname,new_model=True,num_epochs=300)
+textgen.generate(100)
